@@ -17,7 +17,6 @@ export interface Post {
 
 const contentDir = path.join(process.cwd(), "content");
 
-// Get all posts of a given type, sorted newest first
 export function getAllPosts(type: "blogs" | "poems"): Post[] {
   const dir = path.join(contentDir, type);
   if (!fs.existsSync(dir)) return [];
@@ -43,7 +42,6 @@ export function getAllPosts(type: "blogs" | "poems"): Post[] {
   return posts.sort((a, b) => (a.date > b.date ? -1 : 1));
 }
 
-// Get a single post with rendered HTML
 export async function getPostBySlug(
   type: "blogs" | "poems",
   slug: string
@@ -56,7 +54,7 @@ export async function getPostBySlug(
 
   const processed = await remark()
     .use(remarkImageGrid)
-    .use(html, { sanitize: false })
+    .use(html, { sanitize: true })
     .process(content);
 
   return {
@@ -70,7 +68,6 @@ export async function getPostBySlug(
   };
 }
 
-// Read and render the /now page content
 export async function getNowContent(): Promise<{
   htmlContent: string;
 }> {
@@ -83,7 +80,7 @@ export async function getNowContent(): Promise<{
   const { content } = matter(fileContent);
 
   const processed = await remark()
-    .use(html, { sanitize: false })
+    .use(html, { sanitize: true })
     .process(content);
 
   return { htmlContent: processed.toString() };

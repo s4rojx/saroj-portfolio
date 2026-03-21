@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Saroj Ghosh — Portfolio
 
-## Getting Started
+Minimal dark portfolio built with Next.js 14, Tailwind CSS, and shadcn/ui. Content is managed through Markdown files.
 
-First, run the development server:
+## Quick Start
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Adding a Blog Post
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Create a `.md` file in `/content/blogs/` (filename becomes the URL slug)
+2. Add frontmatter at the top:
 
-## Learn More
+```markdown
+---
+title: "Your Post Title"
+date: "2026-03-20"
+tags: ["tech", "opinion"]
+description: "Short SEO meta description."
+---
 
-To learn more about Next.js, take a look at the following resources:
+Your blog content in Markdown.
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. Push to GitHub → Vercel auto-deploys.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Adding a Poem
 
-## Deploy on Vercel
+Same process — create a `.md` file in `/content/poems/`:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```markdown
+---
+title: "your poem title"
+date: "2026-03-20"
+tags: ["night", "code"]
+description: "A short description."
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+line one
+line two
+
+stanza break
+```
+
+Line breaks are preserved exactly as written.
+
+## Adding Images to Posts
+
+1. Place images in `/public/images/`
+2. Reference in any `.md` file:
+
+```markdown
+![caption text](/images/my-photo.jpg)
+```
+
+Two or three consecutive images automatically become a grid.
+
+## Updating the Now Page
+
+Edit `/content/now.md` and push. That's it.
+
+## Replacing the Logo
+
+Drop a new `logo.svg` into `/public/` and redeploy. No code change needed. If no `logo.svg` exists, the initials "SG" are shown.
+
+## Adding Your Resume
+
+Place `resume.pdf` in `/public/` — the `/resume` page embeds it and provides a download link.
+
+## Deployment
+
+1. Push to GitHub
+2. Connect repo to [Vercel](https://vercel.com)
+3. Add custom domain in Vercel dashboard
+4. SSL is automatic
+
+## Sitemap
+
+Update `siteUrl` in `next-sitemap.config.js` to your domain. The sitemap and robots.txt are generated on `postbuild`.

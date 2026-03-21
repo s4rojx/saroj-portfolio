@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Rubik, JetBrains_Mono, Geist } from "next/font/google";
+import { Plus_Jakarta_Sans, Rubik, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { cn } from "@/lib/utils";
-
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -28,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "Saroj Ghosh",
-  description: "Software engineer, poet, curious mind.",
+  description: "An engineering student, a developer, and sometimes a writer.",
 };
 
 export default function RootLayout({
@@ -39,11 +36,15 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn(jakarta.variable, rubik.variable, jetbrainsMono.variable, "font-sans", geist.variable)}
+      className={`${jakarta.variable} ${rubik.variable} ${jetbrainsMono.variable}`}
+      style={{ backgroundColor: "#0e0e0e" }}
     >
-      <body className="min-h-screen flex flex-col antialiased">
+      <body
+        className="min-h-screen flex flex-col antialiased"
+        style={{ backgroundColor: "#0e0e0e", color: "#aaa", fontFamily: "var(--font-jakarta), sans-serif" }}
+      >
         <Navbar />
-        <main className="flex-1 w-full max-w-[720px] mx-auto px-6 md:px-12 pt-24 pb-16 md:pt-20">
+        <main className="flex-1 w-full max-w-[1100px] mx-auto px-6 sm:px-10 lg:px-16 pt-28 pb-20 md:pt-24 md:pb-12">
           {children}
         </main>
         <Footer />

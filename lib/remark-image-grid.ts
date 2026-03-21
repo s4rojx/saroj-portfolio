@@ -1,13 +1,13 @@
 import { visit } from "unist-util-visit";
 import type { Root, Paragraph, Image } from "mdast";
 
-// Remark plugin: wraps consecutive images in grid divs
+// wraps consecutive images in grid
 export function remarkImageGrid() {
   return (tree: Root) => {
     visit(tree, "paragraph", (node: Paragraph, index, parent) => {
       if (!parent || index === undefined) return;
 
-      // Check if paragraph contains only image nodes
+
       const images = node.children.filter(
         (child): child is Image => child.type === "image"
       );

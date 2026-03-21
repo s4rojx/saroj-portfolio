@@ -10,32 +10,32 @@ interface ContentCardProps {
 
 export function ContentCard({ title, date, tags, href, variant }: ContentCardProps) {
   return (
-    <Link href={href} className="block py-4 transition-colors"
-      style={{ borderBottom: "0.5px solid #181818" }}>
+    <Link href={href} className="block py-5 transition-colors group"
+      style={{ borderBottom: "0.5px solid #1c1c1c" }}>
       <div className="flex items-start justify-between gap-4">
-        <h3 className={variant === "poem" ? "italic" : ""}
+        <h3 className={`group-hover:text-white transition-colors ${variant === "poem" ? "italic" : ""}`}
           style={{
             fontFamily: variant === "poem" ? "var(--font-rubik)" : "var(--font-jakarta)",
             fontWeight: variant === "poem" ? 300 : 400,
-            fontSize: "15px",
+            fontSize: "20px",
             color: variant === "poem" ? "#d0d0d0" : "#e0e0e0",
           }}>
           {title}
         </h3>
-        <span style={{ fontFamily: "var(--font-mono)", fontSize: "11px", color: "#333", whiteSpace: "nowrap" }}>
+        <span style={{ fontFamily: "var(--font-mono)", fontSize: "14px", color: "#666", whiteSpace: "nowrap" }}>
           {date}
         </span>
       </div>
       {tags.length > 0 && (
-        <div className="flex gap-2 mt-2 flex-wrap">
+        <div className="flex gap-2 mt-3 flex-wrap">
           {tags.map((tag) => (
             <span key={tag}
-              className="inline-block px-2 py-0.5 rounded"
+              className="inline-block px-2.5 py-1 rounded"
               style={{
                 fontFamily: "var(--font-mono)",
-                fontSize: "10px",
-                color: "#444",
-                border: "0.5px solid #222",
+                fontSize: "12px",
+                color: "#777",
+                border: "0.5px solid #2a2a2a",
               }}>
               {tag}
             </span>
