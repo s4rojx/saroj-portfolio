@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/content";
+import { ViewCounter } from "@/components/ViewCounter";
 
 export async function generateStaticParams() {
   const posts = getAllPosts("poems");
@@ -33,11 +34,14 @@ export default async function PoemPost({
 
   return (
     <article>
-      <Link href="/poems"
-        className="inline-flex items-center gap-2 mb-8 transition-colors hover:text-white"
-        style={{ fontFamily: "var(--font-mono)", fontSize: "14px", color: "#555" }}>
-        ← back to poems
-      </Link>
+      <div className="flex items-center justify-between mb-8">
+        <Link href="/poems"
+          className="inline-flex items-center gap-2 transition-colors hover:text-white"
+          style={{ fontFamily: "var(--font-mono)", fontSize: "14px", color: "#555" }}>
+          ← back to poems
+        </Link>
+        <ViewCounter slug={slug} />
+      </div>
       <h1 className="text-glow"
         style={{ fontFamily: "var(--font-rubik)", fontWeight: 400, fontSize: "34px", color: "#fff" }}>
         {post.title}
