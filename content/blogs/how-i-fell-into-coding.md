@@ -61,8 +61,6 @@ Though my primary goal is to be a good engineer, not a bookish one.
 
 I am writing this because I wish someone had told me that the path is not linear and that things don't always work out the way we plan. I don't really expect any outsider to read this, but if you are someone who is just starting out with coding and feeling the same way I felt — just keep going.
 
-![Yes darr ke aage jeet hai !!!](/images/coding_setup.jpg)
-
 If you are somewhere at the beginning of this journey, reading this while your code refuses to compile — that is normal. Keep going.
 
 I think I'm done with my rambling for now. Though I'm a professional yapper — in case you want to have a conversation, you can always reach out to me at my handles.

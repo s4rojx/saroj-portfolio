@@ -4,7 +4,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* dark tokens */
+/* Override all shadcn tokens to match dark palette */
 :root {
   --background: oklch(0.078 0 0);
   --foreground: oklch(0.6 0 0);
@@ -41,7 +41,7 @@
   --sidebar-ring: oklch(1 0 0);
 }
 
-/* .dark override */
+/* Also override .dark class with same values */
 .dark {
   --background: oklch(0.078 0 0);
   --foreground: oklch(0.6 0 0);
@@ -123,17 +123,19 @@
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     background-color: #0e0e0e;
     color: #888888;
     font-family: var(--font-jakarta), sans-serif;
   }
+
   html {
     @apply font-sans;
   }
 }
 
-/* prose */
+/* Prose styling for blog/poem content */
 .prose h1 {
   font-family: var(--font-jakarta), sans-serif;
   font-weight: 700;
@@ -232,7 +234,7 @@
   color: #fff;
 }
 
-/* images */
+/* Single image styling in posts */
 .prose img {
   border-radius: 8px;
   border: 0.5px solid #1e1e1e;
@@ -240,7 +242,7 @@
   margin: 32px 0;
 }
 
-/* caption */
+/* Image caption */
 .image-caption {
   font-family: var(--font-mono), monospace;
   font-size: 10px;
@@ -249,7 +251,7 @@
   margin-top: 6px;
 }
 
-/* grid */
+/* Image grid for consecutive images */
 .image-grid {
   display: grid;
   gap: 8px;
@@ -264,18 +266,19 @@
 }
 
 @media (max-width: 640px) {
+
   .grid-2,
   .grid-3 {
     grid-template-columns: 1fr;
   }
 }
 
-/* poem */
+/* Poem body preserves line breaks */
 .poem-body {
   white-space: pre-wrap;
 }
 
-/* glow */
+/* Text glow effect */
 .text-glow {
   text-shadow: 0 0 40px rgba(255, 255, 255, 0.15), 0 0 2px rgba(255, 255, 255, 0.25);
 }
