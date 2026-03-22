@@ -34,7 +34,7 @@ export default function About() {
       {/* bio */}
       <div className="flex-1" style={{ fontFamily: "var(--font-jakarta)", fontWeight: 300, fontSize: "17px", color: "#aaa", lineHeight: 1.9 }}>
         <p className="mb-5">
-          I&apos;m an engineering student who enjoys building things that live on the internet. I care about clean code, simple interfaces, and writing that makes people feel something. Currently, I&apos;m proficient in the MERN stack and also exploring AI and Machine Learning, along with attending regular Codeforces contests (rated 1281) and trying out interesting LeetCode problems.
+          I&apos;m an engineering student who enjoys building things that live on the internet. I care about clean code, simple interfaces, and writing that makes people feel something. Currently, I&apos;m proficient in the MERN stack and also exploring AI and Machine Learning, along with attending regular Codeforces contests and trying out interesting LeetCode problems.
         </p>
         <p className="mb-5">
           When I&apos;m not coding (which is the major chunk of my time), I write poems — mostly about human emotions, love, loss, and the strange beauty of being alive in the age of machines. Other than poems, I love reading blogs and articles, majorly on technology. I believe technology and art are not opposites; they are different expressions of the same curiosity. I have a never-ending thirst for learning new things and exploring new ideas.
