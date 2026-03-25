@@ -1,5 +1,7 @@
 # Saroj Ghosh — Portfolio
 
+Live site: [https://saroj-portfolio-beta.vercel.app/](https://saroj-portfolio-beta.vercel.app/)
+
 Minimal dark portfolio built with Next.js 14, Tailwind CSS, and shadcn/ui. Content is managed through Markdown files.
 
 ## Quick Start
@@ -9,7 +11,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Open [http://localhost:3000](http://localhost:3000)
 
 ## Adding a Blog Post
 
