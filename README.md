@@ -62,25 +62,3 @@ Line breaks are preserved exactly as written.
 
 Two or three consecutive images automatically become a grid.
 
-## Updating the Now Page
-
-Edit `/content/now.md` and push. That's it.
-
-## Replacing the Logo
-
-Drop a new `logo.svg` into `/public/` and redeploy. No code change needed. If no `logo.svg` exists, the initials "SG" are shown.
-
-## Adding Your Resume
-
-Place `resume.pdf` in `/public/` — the `/resume` page embeds it and provides a download link.
-
-## Deployment
-
-1. Push to GitHub
-2. Connect repo to [Vercel](https://vercel.com)
-3. Add custom domain in Vercel dashboard
-4. SSL is automatic
-
-## Sitemap
-
-Update `siteUrl` in `next-sitemap.config.js` to your domain. The sitemap and robots.txt are generated on `postbuild`.
