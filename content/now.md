@@ -6,6 +6,7 @@ I believe in the quote "The more I learn, the more I realize how much I don't kn
 ## What I am Reading
 1. The Pragmatic Programmer
 2. A Midsummer Night's Dream *(I'm pretty old school)*
+3. Deep Work - Cal Newport
 
 ## What I am Currently Passionate About
 Grinding Codeforces contests and improving my rating. Also building some projects that have been living in my head for too long — hopefully completing them before 4th semester.
