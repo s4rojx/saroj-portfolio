@@ -16,7 +16,17 @@ export default function Resume() {
 
 
       <div className="w-full mb-6" style={{ border: "0.5px solid #1c1c1c", borderRadius: "8px", overflow: "hidden" }}>
-        <iframe src="/resume.pdf" className="w-full" style={{ height: "80vh", border: "none", backgroundColor: "#141414" }} />
+        <object
+          data="/resume.pdf"
+          type="application/pdf"
+          className="w-full"
+          style={{ height: "80vh", border: "none", backgroundColor: "#141414" }}
+        >
+          <p style={{ color: "#888", padding: "2rem", fontFamily: "var(--font-mono)", fontSize: "13px" }}>
+            Your browser can&apos;t display PDFs inline.{" "}
+            <a href="/resume.pdf" style={{ color: "#fff" }}>Download it here ↓</a>
+          </p>
+        </object>
       </div>
 
 
