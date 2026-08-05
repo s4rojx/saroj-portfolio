@@ -9,7 +9,7 @@ interface Project {
   tech: string[];
   github?: string;
   live?: string;
-  status: "live" | "in-progress" | "archived";
+  status?: "live" | "in-progress" | "archived";
 }
 
 export function ProjectCard({ project }: { project: Project }) {
@@ -55,19 +55,21 @@ export function ProjectCard({ project }: { project: Project }) {
         >
           {project.title}
         </h3>
-        <span
-          style={{
-            fontFamily: "var(--font-mono)",
-            fontSize: "11px",
-            color: statusColor[project.status],
-            padding: "2px 8px",
-            border: `0.5px solid ${statusColor[project.status]}33`,
-            borderRadius: "999px",
-            whiteSpace: "nowrap",
-          }}
-        >
-          {project.status}
-        </span>
+        {project.status && (
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "11px",
+              color: statusColor[project.status],
+              padding: "2px 8px",
+              border: `0.5px solid ${statusColor[project.status]}33`,
+              borderRadius: "999px",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {project.status}
+          </span>
+        )}
       </div>
 
       {/* short description */}

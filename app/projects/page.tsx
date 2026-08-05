@@ -8,40 +8,48 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-  title: "DSA Forge",
-  description: "A full-stack DSA tracking platform for mastering problems through patterns, progress tracking.",
-  longDescription:
-    "DSA Forge is a full-stack web application for learning and tracking Data Structures and Algorithms progress through topic-based and pattern-based practice. It includes secure credentials authentication, protected dashboard and profile pages, problem completion tracking.",
-  tech: [
-    "Next.js",
-    "React",
-    "TypeScript",
-    "Tailwind CSS",
-    "Prisma"
-  ],
-  github: "https://github.com/s4rojx/dsa-forge",
-  live: "https://dsa-forge-five.vercel.app/",
-  status: "live" as const,
-},
-{
+    title: "Concurrent LRU Cache",
+    description:
+      "A concurrent Least Recently Used cache implementation built around fast lookup and eviction behavior.",
+    longDescription:
+      "A data-structure-focused project that implements an LRU cache with concurrency in mind, keeping recently accessed items available while evicting older entries when capacity is reached.",
+    tech: ["LRU Cache", "Concurrency", "Data Structures"],
+    github: "https://github.com/s4rojx/concurrent-lru-cache",
+  },
+  {
     title: "Portfolio",
-    description: "This very website — a minimal dark portfolio with markdown-powered blog and poetry sections.",
-    longDescription: "Built with Next.js 14, Tailwind CSS, and shadcn/ui. Content is managed through markdown files. Features include view counters via Upstash Redis, SEO optimization, and auto-deployment via Vercel.",
+    description:
+      "This very website — a minimal dark portfolio with markdown-powered blog and poetry sections.",
+    longDescription:
+      "Built with Next.js 14, Tailwind CSS, and shadcn/ui. Content is managed through markdown files. Features include view counters via Upstash Redis, SEO optimization, and auto-deployment via Vercel.",
     tech: ["Next.js", "Tailwind CSS", "Markdown", "Upstash Redis"],
     github: "https://github.com/s4rojx/saroj-portfolio",
     live: "https://saroj-portfolio-beta.vercel.app",
     status: "live" as const,
   },
   {
+    title: "DSA Forge",
+    description:
+      "A full-stack DSA tracking platform for mastering problems through patterns, progress tracking.",
+    longDescription:
+      "DSA Forge is a full-stack web application for learning and tracking Data Structures and Algorithms progress through topic-based and pattern-based practice. It includes secure credentials authentication, protected dashboard and profile pages, problem completion tracking.",
+    tech: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Prisma"],
+    github: "https://github.com/s4rojx/dsa-forge",
+    live: "https://dsa-forge-five.vercel.app/",
+    status: "live" as const,
+  },
+  {
     title: "BlogIt",
-    description: "A full-stack blogging platform with authentication, rich text editing, and a clean reading experience.",
-    longDescription: "Built with the MERN stack. Features include JWT-based auth, markdown support, image uploads, user profiles, and a responsive dark UI. Deployed on Vercel (frontend) and Render (backend).",
+    description:
+      "A full-stack blogging platform with authentication, rich text editing, and a clean reading experience.",
+    longDescription:
+      "Built with the MERN stack. Features include JWT-based auth, markdown support, image uploads, user profiles, and a responsive dark UI. Deployed on Vercel (frontend) and Render (backend).",
     tech: ["React", "Node.js", "Express", "MongoDB", "JWT"],
     github: "https://github.com/s4rojx/blogit",
     live: "https://blog-it-rohz.vercel.app/",
     status: "live" as const,
   },
-  
+
   // add more projects here
 ];
 

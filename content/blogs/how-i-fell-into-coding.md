@@ -43,7 +43,7 @@ In the meanwhile I studied Python to a decent level and started working on web d
 
 During my 2nd semester, once I had gathered a lot of confidence, I created an account on Codeforces. I had a very negative and daunting picture of Codeforces in my mind. I thought it was a platform only for the elites, not for someone ordinary like me. So after creating my account, I just did nothing for 2 months.
 
-After my midsems I went on to Codeforces to solve some easy questions and started with 800 rated problems. After a few hours of struggle I was able to solve a few of them. Fast forward to today — I'm rated 1281 on Codeforces (yes, I'm a bit weak in Dynamic Programming and Graphs).
+After my midsems I went on to Codeforces to solve some easy questions and started with 800 rated problems. After a few hours of struggle I was able to solve a few of them. Fast forward to today — I'm rated pupil on codeforces witha rating of 1377.
 
 I find competitive programming interesting and a suitable brain exercise. Though I'm not able to participate in all contests these days, I will make it a habit to participate in at least 2 contests a week (either virtual or real) and solve at least 2 problems daily.
 
