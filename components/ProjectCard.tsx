@@ -14,175 +14,194 @@ interface Project {
 
 export function ProjectCard({ project }: { project: Project }) {
   const [expanded, setExpanded] = useState(false);
-
-  const statusColor = {
-    live: "#4ade80",
-    "in-progress": "#facc15",
-    archived: "#666",
-  };
+  const detailsId = `${project.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-details`;
+  const projectMark = project.title.trim().charAt(0).toUpperCase();
+  const statusLabel = project.status === "in-progress" ? "in progress" : project.status;
 
   return (
-    <div
-      className="group relative cursor-pointer"
-      onClick={() => setExpanded(!expanded)}
+    <article
+      className="group relative flex h-full flex-col overflow-hidden transition-[transform,box-shadow,border-color] duration-300 hover:-translate-y-1 hover:border-[#3a3a3a] hover:shadow-[0_14px_40px_rgba(0,0,0,0.35)]"
       style={{
-        background: "#111",
-        border: "0.5px solid #1e1e1e",
-        borderRadius: "12px",
-        padding: "24px",
-        transition: "all 0.3s ease",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = "#333";
-        e.currentTarget.style.transform = "translateY(-2px)";
-        e.currentTarget.style.boxShadow = "0 8px 30px rgba(0,0,0,0.4)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "#1e1e1e";
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "none";
+        background: "linear-gradient(180deg, #181818 0%, #111 34%, #0d0d0d 100%)",
+        border: "1px solid #292929",
+        borderRadius: "16px",
+        boxShadow: "0 8px 24px rgba(0, 0, 0, 0.16)",
       }}
     >
-      {/* header */}
-      <div className="flex items-start justify-between mb-3">
-        <h3
-          style={{
-            fontFamily: "var(--font-jakarta)",
-            fontWeight: 600,
-            fontSize: "20px",
-            color: "#fff",
-          }}
-        >
-          {project.title}
-        </h3>
-        {project.status && (
-          <span
+      <div className="flex flex-1 flex-col p-6 sm:p-7">
+        <div className="flex items-start justify-between gap-4">
+          <div
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl"
             style={{
+              border: "1px solid #383838",
+              backgroundColor: "#101010",
+              color: "#d4d4d4",
               fontFamily: "var(--font-mono)",
-              fontSize: "11px",
-              color: statusColor[project.status],
-              padding: "2px 8px",
-              border: `0.5px solid ${statusColor[project.status]}33`,
-              borderRadius: "999px",
-              whiteSpace: "nowrap",
+              fontSize: "14px",
+              boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05)",
+            }}
+            aria-hidden="true"
+          >
+            {projectMark}
+          </div>
+
+          {statusLabel && (
+            <span
+              className="rounded-full"
+              style={{
+                border: "1px solid #3a3a3a",
+                backgroundColor: "#151515",
+                color: "#a5a5a5",
+                padding: "5px 10px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "11px",
+                lineHeight: 1,
+                whiteSpace: "nowrap",
+              }}
+            >
+              {statusLabel}
+            </span>
+          )}
+        </div>
+
+        <div className="mt-6">
+          <h3
+            style={{
+              fontFamily: "var(--font-jakarta)",
+              fontWeight: 700,
+              fontSize: "22px",
+              color: "#f5f5f5",
+              letterSpacing: "-0.02em",
             }}
           >
-            {project.status}
-          </span>
-        )}
+            {project.title}
+          </h3>
+          <p
+            className="mt-3"
+            style={{
+              fontFamily: "var(--font-jakarta)",
+              fontWeight: 300,
+              fontSize: "15px",
+              color: "#969696",
+              lineHeight: 1.75,
+            }}
+          >
+            {project.description}
+          </p>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {project.tech.map((technology) => (
+            <span
+              key={technology}
+              className="rounded-md"
+              style={{
+                border: "1px solid #303030",
+                backgroundColor: "rgba(255,255,255,0.02)",
+                color: "#8f8f8f",
+                padding: "5px 9px",
+                fontFamily: "var(--font-mono)",
+                fontSize: "11px",
+              }}
+            >
+              {technology}
+            </span>
+          ))}
+        </div>
       </div>
 
-      {/* short description */}
-      <p
+      <button
+        type="button"
+        className="flex w-full items-center justify-between border-t px-6 py-4 text-left transition-colors duration-200 hover:bg-white/[0.03] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:ring-inset sm:px-7"
         style={{
-          fontFamily: "var(--font-jakarta)",
-          fontWeight: 300,
-          fontSize: "15px",
-          color: "#888",
-          lineHeight: 1.7,
-          marginBottom: "16px",
+          borderColor: "#292929",
+          color: "#777",
+          fontFamily: "var(--font-mono)",
+          fontSize: "12px",
         }}
+        aria-expanded={expanded}
+        aria-controls={detailsId}
+        onClick={() => setExpanded((isExpanded) => !isExpanded)}
       >
-        {project.description}
-      </p>
+        <span>{expanded ? "hide details" : "view details"}</span>
+        <span
+          className="transition-transform duration-300"
+          style={{
+            display: "inline-block",
+            transform: expanded ? "rotate(45deg)" : "rotate(0deg)",
+            fontSize: "16px",
+            lineHeight: 1,
+          }}
+          aria-hidden="true"
+        >
+          +
+        </span>
+      </button>
 
-      {/* tech stack */}
-      <div className="flex flex-wrap gap-2 mb-4">
-        {project.tech.map((t) => (
-          <span
-            key={t}
-            style={{
-              fontFamily: "var(--font-mono)",
-              fontSize: "11px",
-              color: "#777",
-              border: "0.5px solid #2a2a2a",
-              borderRadius: "4px",
-              padding: "3px 8px",
-            }}
-          >
-            {t}
-          </span>
-        ))}
-      </div>
-
-      {/* expanded popover */}
       <div
+        id={detailsId}
+        aria-hidden={!expanded}
         style={{
-          maxHeight: expanded ? "300px" : "0",
+          maxHeight: expanded ? "320px" : "0px",
           opacity: expanded ? 1 : 0,
           overflow: "hidden",
-          transition: "all 0.4s ease",
+          transition: "max-height 0.35s ease, opacity 0.25s ease",
         }}
       >
         <div
-          style={{
-            borderTop: "0.5px solid #1e1e1e",
-            paddingTop: "16px",
-            marginTop: "4px",
-          }}
+          className="border-t px-6 pb-6 pt-5 sm:px-7"
+          style={{ borderColor: "#292929" }}
         >
           <p
             style={{
               fontFamily: "var(--font-jakarta)",
               fontWeight: 300,
               fontSize: "14px",
-              color: "#aaa",
+              color: "#a9a9a9",
               lineHeight: 1.8,
-              marginBottom: "16px",
             }}
           >
             {project.longDescription}
           </p>
 
-          {/* links */}
-          <div className="flex gap-4">
-            {project.github && (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="transition-colors hover:text-white"
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "13px",
-                  color: "#666",
-                }}
-              >
-                ↗ github
-              </a>
-            )}
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="transition-colors hover:text-white"
-                style={{
-                  fontFamily: "var(--font-mono)",
-                  fontSize: "13px",
-                  color: "#666",
-                }}
-              >
-                ↗ live
-              </a>
-            )}
-          </div>
+          {(project.github || project.live) && (
+            <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
+              {project.github && (
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabIndex={expanded ? 0 : -1}
+                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  style={{
+                    color: "#858585",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "12px",
+                  }}
+                >
+                  ↗ github
+                </a>
+              )}
+              {project.live && (
+                <a
+                  href={project.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  tabIndex={expanded ? 0 : -1}
+                  className="transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/50"
+                  style={{
+                    color: "#858585",
+                    fontFamily: "var(--font-mono)",
+                    fontSize: "12px",
+                  }}
+                >
+                  ↗ live site
+                </a>
+              )}
+            </div>
+          )}
         </div>
       </div>
-
-      {/* expand hint */}
-      <div
-        className="flex justify-center mt-2"
-        style={{
-          fontFamily: "var(--font-mono)",
-          fontSize: "11px",
-          color: "#444",
-        }}
-      >
-        {expanded ? "click to collapse" : "click to expand"}
-      </div>
-    </div>
+    </article>
   );
 }

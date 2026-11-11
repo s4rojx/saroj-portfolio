@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    title: "Concurrent LRU Cache",
+    title: "Nimble Cache",
     description:
       "A Java 21 in-memory cache with segmented concurrency, pluggable eviction, TTL expiration, and request coalescing.",
     longDescription:
@@ -39,7 +39,7 @@ const projects = [
     status: "live" as const,
   },
   {
-    title: "BlogIt",
+    title: "Accessly",
     description:
       "A full-stack blogging platform with authentication, rich text editing, and a clean reading experience.",
     longDescription:
