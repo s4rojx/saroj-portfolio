@@ -39,7 +39,7 @@ const projects = [
     status: "live" as const,
   },
   {
-    title: "Accessly",
+    title: "BlogIt",
     description:
       "A full-stack blogging platform with authentication, rich text editing, and a clean reading experience.",
     longDescription:
