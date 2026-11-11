@@ -10,11 +10,11 @@ const projects = [
   {
     title: "Concurrent LRU Cache",
     description:
-      "A concurrent Least Recently Used cache implementation built around fast lookup and eviction behavior.",
+      "A Java 21 in-memory cache with segmented concurrency, pluggable eviction, TTL expiration, and request coalescing.",
     longDescription:
-      "A data-structure-focused project that implements an LRU cache with concurrency in mind, keeping recently accessed items available while evicting older entries when capacity is reached.",
-    tech: ["LRU Cache", "Concurrency", "Data Structures"],
-    github: "https://github.com/s4rojx/concurrent-lru-cache",
+      "A Java 21 cache with segmented concurrency, multiple eviction policies, TTL expiration, and single-flight loading.",
+    tech: ["Java 21", "Concurrency", "Caching"],
+    github: "https://github.com/s4rojx/nimble-cache",
   },
   {
     title: "Portfolio",
